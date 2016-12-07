@@ -7,7 +7,8 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.1'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -27,17 +28,41 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-//固定一个地方定义版本
-ext{
-    minSdkVersion = 14
-    targetSdkVersion = 24
-    compileSdkVersion = 24
-    buildToolsVersion = '25'
 
-    //依赖库版本
-    supportLibraryVersion = '25.0.0'
-    junitVersion='4.12'
-    butterknifeVersion='8.4.0'
-    codeviewVersion='0.3.1'
-    rvHolderVersion='2.6.1'
+ext {
+    setup = [compileSdk: 24,
+             buildTools: "25",
+             minSdk    : 14,
+             targetSdk : 24]
+
+    versions = [
+            supportLib: "25.0.0",
+            glide : "3.7.0",
+            junit : "4.12",
+            butterknife : "8.4.0",
+            codeview : "0.3.1",
+            rvHolder : "2.6.1"
+    ]
+
+    bintrayRepo = 'maven'
+    bintrayName = 'xmvp'
+
+    publishedGroupId = 'com.github.xujiaji'
+    libraryName = 'xmvp'
+    artifact = 'xmvp'
+
+    libraryDescription = 'This is a mvp library, help you quickly create mvp file'
+
+    siteUrl = 'https://github.com/xujiaji/XMVP'
+    gitUrl = 'https://github.com/xujiaji/XMVP.git'
+
+    libraryVersion = '0.0.1'
+
+    developerId = 'xujiaji'
+    developerName = 'xujiaji'
+    developerEmail = 'xinfeichiyuanye@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }

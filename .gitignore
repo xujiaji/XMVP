@@ -6,3 +6,5 @@
 /XMVPLibrary/build/
 /sample/build/
 /.gradle/
+/local.properties
+
