@@ -16,7 +16,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':XMVPLibrary')
+    compile project(':xmvp')
     testCompile "junit:junit:${versions.junit}"
     compile "com.android.support:support-v4:${versions.supportLib}"
     compile "com.android.support:appcompat-v7:${versions.supportLib}"

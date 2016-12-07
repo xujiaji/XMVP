@@ -1,1 +1,1 @@
-include ':sample', ':XMVPLibrary'
+include ':sample', ':xmvp'

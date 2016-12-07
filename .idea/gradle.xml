@@ -8,8 +8,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/XMVPLibrary" />
             <option value="$PROJECT_DIR$/sample" />
+            <option value="$PROJECT_DIR$/xmvp" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
