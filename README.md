@@ -1,6 +1,7 @@
 # XMVP
 Extract the MVP from the project
 # Display code 
+[Download this app](https://github.com/xujiaji/XMVP/releases/download/1.0.0/sample-debug.apk)
 ![display](display/dis.gif)
 # How to use?
 ### step1:define a contract
