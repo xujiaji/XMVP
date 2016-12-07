@@ -1,0 +1,7 @@
+*.iml
+/.idea/workspace.xml
+/build
+/gradle.properties
+
+/XMVPLibrary/build/
+/sample/build/
