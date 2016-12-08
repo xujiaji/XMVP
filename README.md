@@ -8,7 +8,7 @@ Extract the MVP from the project
 ### Add xmvp dependency into your build.gradle
 ```
 dependencies {
-    compile 'com.github.xujiaji:xmvp:0.0.2'
+    compile 'com.github.xujiaji:xmvp:0.0.3'
 }
 ```
 ### step1:define a contract
