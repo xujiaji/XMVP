@@ -19,7 +19,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-import io.xujiaji.xmvp.contracts.Contract;
+import io.xujiaji.xmvp.contracts.XContract;
 
 
 /**
@@ -47,7 +47,7 @@ public class GenericHelper {
         Class<?> aClass = (Class<?>) t;
         Class<?>[] classes = aClass.getInterfaces();
         for (Class<?> c : classes) {
-            return c == Contract.Presenter.class || isPresenter(c);
+            return c == XContract.Presenter.class || isPresenter(c);
         }
         return false;
     }
@@ -68,13 +68,13 @@ public class GenericHelper {
     public static Class<?> getViewInterface(Class currentClass) {
         Class<?>[] classes = currentClass.getInterfaces();
         for (Class<?> c : classes) {
-            if (c != Contract.View.class) {
-                if (getViewInterface(c) == Contract.View.class) {
+            if (c != XContract.View.class) {
+                if (getViewInterface(c) == XContract.View.class) {
                     return c;
                 }
             }
             return c;
         }
-        throw new RuntimeException("no implement Contract.BaseView");
+        throw new RuntimeException("no implement XContract.BaseView");
     }
 }

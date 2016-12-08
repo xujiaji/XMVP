@@ -5,18 +5,18 @@ import android.app.Activity;
 import java.util.List;
 
 import io.xujiaji.sample.model.entity.FileEntity;
-import io.xujiaji.xmvp.contracts.Contract;
+import io.xujiaji.xmvp.contracts.XContract;
 
 /**
  * Created by jiana on 16-11-19.
  */
 
 public interface HomeContract {
-    interface Presenter extends Contract.Presenter{
+    interface Presenter extends XContract.Presenter{
         void loadData(Activity activity);
     }
 
-    interface View extends Contract.View{
+    interface View extends XContract.View{
         void loadStart();
         void loadEnd(List<FileEntity> fileEntities);
     }

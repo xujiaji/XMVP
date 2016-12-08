@@ -16,13 +16,13 @@
 
 package io.xujiaji.xmvp.presenters;
 
-import io.xujiaji.xmvp.contracts.Contract;
+import io.xujiaji.xmvp.contracts.XContract;
 
 /**
  * Created by jiana on 16-11-4.
  */
 
-public class XBasePresenter<T extends Contract.View> {
+public class XBasePresenter<T extends XContract.View> {
     protected T view;
     public XBasePresenter(T view) {
         this.view = view;

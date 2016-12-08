@@ -8,19 +8,19 @@ Extract the MVP from the project
 ### Add xmvp dependency into your build.gradle
 ```
 dependencies {
-    compile 'com.github.xujiaji:xmvp:0.0.3'
+    compile 'com.github.xujiaji:xmvp:0.0.4'
 }
 ```
 ### step1:define a contract
-You need to define a contract in contracts package, it contains a extend 'Contract.BasePresenter' interface and a extend 'Contract.BaseView' interface.
+You need to define a contract in contracts package, it contains a extend 'XContract.Presenter' interface and a extend 'XContract.View' interface.
 > example:MainContract
 
 ``` java
 public interface MainContract {
-    interface Presenter extends Contract.BasePresenter{
+    interface Presenter extends XContract.Presenter{
         void requestTextData();
     }
-    interface View extends Contract.BaseView{
+    interface View extends XContract.View{
         void showText(String text);
     }
 }
@@ -41,7 +41,7 @@ public class DataFill {
 > example: MainPresenter.java
 
 ``` java
-public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
+public class MainPresenter extends XBasePresenter<MainContract.View> implements MainContract.Presenter {
 
     public MainPresenter(MainContract.View view) {
         super(view);
@@ -65,7 +65,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
 > example: MainActivity.java
 
 ``` java
-public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
+public class MainActivity extends XBaseActivity<MainPresenter> implements MainContract.View {
     @BindView(R.id.tvText)
     TextView tvText;
 

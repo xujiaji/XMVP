@@ -56,7 +56,7 @@ ext {
     siteUrl = 'https://github.com/xujiaji/XMVP'
     gitUrl = 'https://github.com/xujiaji/XMVP.git'
 
-    libraryVersion = '0.0.3'
+    libraryVersion = '0.0.4'
 
     developerId = 'xujiaji'
     developerName = 'xujiaji'
