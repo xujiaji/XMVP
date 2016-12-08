@@ -1,10 +1,16 @@
 # XMVP
 Extract the MVP from the project
-# Display code 
+# Display xmvp code by this app. 
 [Download this app](https://github.com/xujiaji/XMVP/releases/download/1.0.0/sample-debug.apk)
 
 ![display](display/dis.gif)
 # How to use?
+### Add xmvp dependency into your build.gradle
+```
+dependencies {
+    compile 'com.github.xujiaji:xmvp:0.0.2'
+}
+```
 ### step1:define a contract
 You need to define a contract in contracts package, it contains a extend 'Contract.BasePresenter' interface and a extend 'Contract.BaseView' interface.
 > example:MainContract
