@@ -19,9 +19,9 @@ import io.xujiaji.sample.adapter.HomeAdapter;
 import io.xujiaji.sample.contract.HomeContract;
 import io.xujiaji.sample.model.entity.FileEntity;
 import io.xujiaji.sample.presenter.HomePresenter;
-import io.xujiaji.xmvp.view.base.BaseActivity;
+import io.xujiaji.xmvp.view.base.XBaseActivity;
 
-public class HomeActivity extends BaseActivity<HomePresenter> implements HomeContract.View {
+public class HomeActivity extends XBaseActivity<HomePresenter> implements HomeContract.View {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.rvFolder)

@@ -8,13 +8,13 @@ import io.xujiaji.sample.contract.HomeContract;
 import io.xujiaji.sample.model.DataFill;
 import io.xujiaji.sample.model.entity.FileEntity;
 import io.xujiaji.sample.util.FileHelper;
-import io.xujiaji.xmvp.presenters.BasePresenter;
+import io.xujiaji.xmvp.presenters.XBasePresenter;
 
 /**
  * Created by jiana on 16-11-19.
  */
 
-public class HomePresenter extends BasePresenter<HomeContract.View> implements HomeContract.Presenter {
+public class HomePresenter extends XBasePresenter<HomeContract.View> implements HomeContract.Presenter {
 
     public HomePresenter(HomeContract.View view) {
         super(view);

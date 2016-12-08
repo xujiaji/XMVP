@@ -13,66 +13,73 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package io.xujiaji.xmvp.view.base;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
-import io.xujiaji.xmvp.presenters.BasePresenter;
+import butterknife.Unbinder;
+import io.xujiaji.xmvp.presenters.XBasePresenter;
 import io.xujiaji.xmvp.utils.GenericHelper;
 
 /**
- * 项目中Activity的基类
+ * 项目中Fragment的基类
  */
-public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity {
+public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment {
+
     protected T presenter;
 
+    private View rootView;
+    private Unbinder unbinder;
+
+    @Nullable
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        beforeSetContentView();
-        setContentView(getContentId());
-        ButterKnife.bind(this);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         try{
             presenter = GenericHelper.initPresenter(this);
         }catch (Exception e) {
             e.printStackTrace();
         }
+        rootView = inflater.inflate(getLayoutId(), container, false);
+        unbinder = ButterKnife.bind(this, rootView);
         onInit();
         onListener();
         if (presenter != null) {
             presenter.start();
         }
+        return rootView;
     }
 
+
+
     /**
-     * 需要在SetContentView之前做的操作
+     * 添加监听
      */
-    protected void beforeSetContentView() {
+    protected void onListener(){
+
     }
 
-    /**
-     * 在这里面进行初始化
-     */
-    protected void onInit() {}
+    protected abstract int getLayoutId();
 
     /**
-     * 这里面写监听事件
+     * 初始化控件
      */
-    protected void onListener() {}
+    protected void onInit(){}
 
-    /**
-     * 获取布局的id
-     * @return
-     */
-    protected abstract int getContentId();
+    public View getRootView() {
+        return this.rootView;
+    }
+
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
         presenter.end();
+        unbinder.unbind();
     }
 }

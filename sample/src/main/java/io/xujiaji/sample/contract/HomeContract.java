@@ -12,11 +12,11 @@ import io.xujiaji.xmvp.contracts.Contract;
  */
 
 public interface HomeContract {
-    interface Presenter extends Contract.BasePresenter{
+    interface Presenter extends Contract.Presenter{
         void loadData(Activity activity);
     }
 
-    interface View extends Contract.BaseView{
+    interface View extends Contract.View{
         void loadStart();
         void loadEnd(List<FileEntity> fileEntities);
     }

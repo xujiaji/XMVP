@@ -22,9 +22,9 @@ import io.xujiaji.xmvp.contracts.Contract;
  * Created by jiana on 16-11-4.
  */
 
-public class BasePresenter<T extends Contract.BaseView> {
+public class XBasePresenter<T extends Contract.View> {
     protected T view;
-    public BasePresenter(T view) {
+    public XBasePresenter(T view) {
         this.view = view;
     }
 

@@ -47,7 +47,7 @@ public class GenericHelper {
         Class<?> aClass = (Class<?>) t;
         Class<?>[] classes = aClass.getInterfaces();
         for (Class<?> c : classes) {
-            return c == Contract.BasePresenter.class || isPresenter(c);
+            return c == Contract.Presenter.class || isPresenter(c);
         }
         return false;
     }
@@ -61,15 +61,15 @@ public class GenericHelper {
             e.printStackTrace();
         }
         throw new RuntimeException("instance of presenter fail\n" +
-                " Remind presenter need to extends BasePresenter");
+                " Remind presenter need to extends XBasePresenter");
     }
 
 
     public static Class<?> getViewInterface(Class currentClass) {
         Class<?>[] classes = currentClass.getInterfaces();
         for (Class<?> c : classes) {
-            if (c != Contract.BaseView.class) {
-                if (getViewInterface(c) == Contract.BaseView.class) {
+            if (c != Contract.View.class) {
+                if (getViewInterface(c) == Contract.View.class) {
                     return c;
                 }
             }

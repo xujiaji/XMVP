@@ -9,7 +9,7 @@ import butterknife.BindView;
 import io.xujiaji.sample.R;
 import io.xujiaji.sample.contract.CodeContract;
 import io.xujiaji.sample.presenter.CodePresenter;
-import io.xujiaji.xmvp.view.base.BaseFragment;
+import io.xujiaji.xmvp.view.base.XBaseFragment;
 import thereisnospon.codeview.CodeView;
 import thereisnospon.codeview.CodeViewTheme;
 
@@ -17,7 +17,7 @@ import thereisnospon.codeview.CodeViewTheme;
  * Created by jiana on 16-11-21.
  */
 
-public class CodeFragment extends BaseFragment<CodePresenter> implements CodeContract.View {
+public class CodeFragment extends XBaseFragment<CodePresenter> implements CodeContract.View {
     public static final String KEY = "file";
     private ProgressDialog dialog;
 

@@ -19,11 +19,15 @@ package io.xujiaji.xmvp.contracts;
  * Created by jiana on 16-7-22.
  */
 public interface Contract {
-    interface BasePresenter {
+    interface Presenter {
 
     }
 
-    interface BaseView {
+    interface View {
+
+    }
+
+    interface Model {
 
     }
 

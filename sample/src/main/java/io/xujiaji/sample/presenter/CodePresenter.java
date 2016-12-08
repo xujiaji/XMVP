@@ -7,13 +7,13 @@ import java.io.File;
 import io.xujiaji.sample.contract.CodeContract;
 import io.xujiaji.sample.model.DataFill;
 import io.xujiaji.sample.util.FileHelper;
-import io.xujiaji.xmvp.presenters.BasePresenter;
+import io.xujiaji.xmvp.presenters.XBasePresenter;
 
 /**
  * Created by jiana on 16-11-21.
  */
 
-public class CodePresenter extends BasePresenter<CodeContract.View> implements CodeContract.Presenter {
+public class CodePresenter extends XBasePresenter<CodeContract.View> implements CodeContract.Presenter {
     public CodePresenter(CodeContract.View view) {
         super(view);
     }

@@ -82,13 +82,15 @@ public class FileHelper {
 
     /**
      * 解压
+     *
      * @param directory
      * @param ism
      * @throws Exception
      */
     public void unzipModuleData(final File directory, InputStream ism) throws Exception {
-        try (InputStream is = new BufferedInputStream(ism);
-             ZipInputStream zis = new ZipInputStream(new BufferedInputStream(is))) {
+        InputStream is = new BufferedInputStream(ism);
+        ZipInputStream zis = new ZipInputStream(new BufferedInputStream(is));
+        try {
             ZipEntry entry;
             while ((entry = zis.getNextEntry()) != null) {
                 String entryName = entry.getName();
@@ -119,6 +121,11 @@ public class FileHelper {
                     }
                 }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            is.close();
+            zis.close();
         }
     }
 
@@ -128,7 +135,7 @@ public class FileHelper {
             final StringBuilder sb = new StringBuilder();
             int len;
             char[] buff = new char[1024];
-            while((len = fr.read(buff)) != -1) {
+            while ((len = fr.read(buff)) != -1) {
                 sb.append(buff, 0, len);
             }
             fr.close();
@@ -147,6 +154,7 @@ public class FileHelper {
 
     /**
      * 获取缓存目录
+     *
      * @return
      */
     public String getAppCacheDir() {

@@ -11,11 +11,11 @@ import io.xujiaji.xmvp.contracts.Contract;
  */
 
 public interface CodeContract {
-    interface Presenter extends Contract.BasePresenter{
+    interface Presenter extends Contract.Presenter{
         void readCodeByFile(Activity activity, File file);
     }
 
-    interface View extends Contract.BaseView{
+    interface View extends Contract.View{
         void showLoadCode();
         void showCode(String code);
     }
