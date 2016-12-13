@@ -37,7 +37,7 @@ public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatA
         setContentView(getContentId());
         ButterKnife.bind(this);
         try{
-            presenter = GenericHelper.initPresenter(this);
+            presenter = GenericHelper.newPresenter(this);
         }catch (Exception e) {
             e.printStackTrace();
         }

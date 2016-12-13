@@ -41,7 +41,7 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         try{
-            presenter = GenericHelper.initPresenter(this);
+            presenter = GenericHelper.newPresenter(this);
         }catch (Exception e) {
             e.printStackTrace();
         }

@@ -22,15 +22,23 @@ import io.xujiaji.xmvp.contracts.XContract;
  * Created by jiana on 16-11-4.
  */
 
-public class XBasePresenter<T extends XContract.View> {
+public class XBasePresenter<T extends XContract.View, E extends XContract.Model> {
     protected T view;
-    public XBasePresenter(T view) {
-        this.view = view;
+    protected E model;
+
+    public void init(Object view, Object model) {
+        this.view = (T) view;
+        this.model = (E) model;
     }
+//    public XBasePresenter(T view, E model) {
+//        this.view = view;
+//        this.model = model;
+//    }
 
     public void start() {}
 
     public void end() {
         view = null;
+        model = null;
     }
 }

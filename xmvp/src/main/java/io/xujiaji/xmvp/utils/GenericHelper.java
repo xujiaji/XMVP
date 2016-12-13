@@ -15,11 +15,11 @@
  */
 
 package io.xujiaji.xmvp.utils;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 import io.xujiaji.xmvp.contracts.XContract;
+import io.xujiaji.xmvp.presenters.XBasePresenter;
 
 
 /**
@@ -27,13 +27,13 @@ import io.xujiaji.xmvp.contracts.XContract;
  */
 public class GenericHelper {
 
-    public static <T> Class<T> getViewClass(Class<?> klass) {
+    public static <T> Class<T> getGenericClass(Class<?> klass, Class<?> filterClass) {
         Type type = klass.getGenericSuperclass();
         if(type == null || !(type instanceof ParameterizedType)) return null;
         ParameterizedType parameterizedType = (ParameterizedType) type;
         Type[] types = parameterizedType.getActualTypeArguments();
         for (Type t : types) {
-            if (isPresenter(t)) {
+            if (isPresenter(t, filterClass)) {
                 return (Class<T>) t;
             }
         }
@@ -43,20 +43,28 @@ public class GenericHelper {
 //        return (Class<T>) types[0];
     }
 
-    private static boolean isPresenter(Type t) {
+    private static boolean isPresenter(Type t, Class<?> filterClass) {
         Class<?> aClass = (Class<?>) t;
         Class<?>[] classes = aClass.getInterfaces();
         for (Class<?> c : classes) {
-            return c == XContract.Presenter.class || isPresenter(c);
+            return c == filterClass || isPresenter(c, filterClass);
         }
         return false;
     }
 
-    public static  <T> T initPresenter(Object obj) {
+    public static  <T> T newPresenter(Object obj) {
+        if (!XContract.View.class.isInstance(obj)) {
+            throw new RuntimeException("no implement XContract.BaseView");
+        }
         try {
             Class<?> currentClass = obj.getClass();
-            Constructor construct = getViewClass(currentClass).getConstructor(getViewInterface(currentClass));
-            return  (T) construct.newInstance(obj);
+//            Class<?> viewClass = getViewInterface(currentClass);
+            Class<?> presenterClass = getGenericClass(currentClass, XContract.Presenter.class);
+            Class<?> modelClass = getGenericClass(presenterClass, XContract.Model.class);
+//            Constructor construct = presenterClass.getConstructor(viewClass, modelClass);
+            XBasePresenter<?,?> xBasePresenter = (XBasePresenter<?, ?>) presenterClass.newInstance();
+            xBasePresenter.init(obj, modelClass.newInstance());
+            return (T) xBasePresenter;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -65,16 +73,16 @@ public class GenericHelper {
     }
 
 
-    public static Class<?> getViewInterface(Class currentClass) {
-        Class<?>[] classes = currentClass.getInterfaces();
-        for (Class<?> c : classes) {
-            if (c != XContract.View.class) {
-                if (getViewInterface(c) == XContract.View.class) {
-                    return c;
-                }
-            }
-            return c;
-        }
-        throw new RuntimeException("no implement XContract.BaseView");
-    }
+//    public static Class<?> getViewInterface(Class currentClass) {
+//        Class<?>[] classes = currentClass.getInterfaces();
+//        for (Class<?> c : classes) {
+//            if (c != XContract.View.class) {
+//                if (getViewInterface(c) == XContract.View.class) {
+//                    return c;
+//                }
+//            }
+//            return c;
+//        }
+//        throw new RuntimeException("no implement XContract.BaseView");
+//    }
 }
