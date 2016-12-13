@@ -7,7 +7,7 @@
 ### Add xmvp dependency into your build.gradle
 ```
 dependencies {
-    compile 'com.github.xujiaji:xmvp:1.0.0'
+    compile 'com.github.xujiaji:xmvp:1.0.1'
 }
 ```
 ### step1:define a contract
