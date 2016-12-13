@@ -24,9 +24,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     provided "com.android.support:appcompat-v7:${versions.supportLib}"
     provided "junit:junit:${versions.junit}"
-    //绑定UI
-    compile "com.jakewharton:butterknife:${versions.butterknife}"
-    apt "com.jakewharton:butterknife-compiler:${versions.butterknife}"
 }
 apply from: 'install.gradle'
 apply from: 'bintray.gradle'

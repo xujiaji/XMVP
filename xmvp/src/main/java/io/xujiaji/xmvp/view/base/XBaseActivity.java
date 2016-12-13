@@ -20,7 +20,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import butterknife.ButterKnife;
 import io.xujiaji.xmvp.presenters.XBasePresenter;
 import io.xujiaji.xmvp.utils.GenericHelper;
 
@@ -35,7 +34,6 @@ public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatA
         super.onCreate(savedInstanceState);
         beforeSetContentView();
         setContentView(getContentId());
-        ButterKnife.bind(this);
         try{
             presenter = GenericHelper.newPresenter(this);
         }catch (Exception e) {

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.xujiaji.sample.R;
 import io.xujiaji.sample.adapter.HomeAdapter;
 import io.xujiaji.sample.contract.HomeContract;
@@ -36,6 +37,7 @@ public class HomeActivity extends XBaseActivity<HomePresenter> implements HomeCo
     @Override
     protected void onInit() {
         super.onInit();
+        ButterKnife.bind(this);
         toolbar.setTitle(R.string.xmvp_folder);
         setSupportActionBar(toolbar);
         rvFolder.setLayoutManager(new LinearLayoutManager(this));

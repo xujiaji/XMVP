@@ -22,8 +22,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.xujiaji.xmvp.presenters.XBasePresenter;
 import io.xujiaji.xmvp.utils.GenericHelper;
 
@@ -35,7 +33,6 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment {
     protected T presenter;
 
     private View rootView;
-    private Unbinder unbinder;
 
     @Nullable
     @Override
@@ -46,7 +43,6 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment {
             e.printStackTrace();
         }
         rootView = inflater.inflate(getLayoutId(), container, false);
-        unbinder = ButterKnife.bind(this, rootView);
         onInit();
         onListener();
         if (presenter != null) {
@@ -80,6 +76,5 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         presenter.end();
-        unbinder.unbind();
     }
 }
