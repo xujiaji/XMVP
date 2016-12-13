@@ -1,5 +1,5 @@
 # XMVP
-[![xmvp release](https://img.shields.io/github/release/qubyte/rubidium.svg)]()
+[![xmvp release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/xujiaji/XMVP/releases/tag/1.0.0)
 
 # How to use?
 > Just need 4 steps.
