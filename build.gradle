@@ -51,12 +51,12 @@ ext {
     libraryName = 'xmvp'
     artifact = 'xmvp'
 
-    libraryDescription = 'This is a mvp library, help you quickly create mvp file'
+    libraryDescription = 'This is an official version. Simplified mvp implementation process.'
 
     siteUrl = 'https://github.com/xujiaji/XMVP'
     gitUrl = 'https://github.com/xujiaji/XMVP.git'
 
-    libraryVersion = '0.0.4'
+    libraryVersion = '1.0.0'
 
     developerId = 'xujiaji'
     developerName = 'xujiaji'
