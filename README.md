@@ -2,7 +2,7 @@
 [![GitHub release](https://img.shields.io/badge/release-1.0.1-red.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.0.1-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.0.1) [![Github release download](https://img.shields.io/badge/download-jar-orange.svg)](https://github.com/xujiaji/XMVP/releases/download/1.0.1/xmvp_1_0_1.jar)
 
 # How to use?
-> Just need 4 steps.
+> Just need 4 steps. 
 
 ### Add xmvp dependency into your build.gradle
 ```
