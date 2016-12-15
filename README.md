@@ -182,6 +182,10 @@ public class HomeActivity extends XBaseActivity<HomePresenter> implements HomeCo
 }
 ```
 
+#### You think this MVP too much trouble?
+MVPManager helps you manage MVP code quickly.
+[link MVPManager](https://github.com/xujiaji/MVPManager)
+
 #### Home UML
 ![mvp uml](display/mvp.png)
 
