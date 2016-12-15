@@ -1,0 +1,14 @@
+@startuml
+class HomeActivity
+interface View
+interface Model
+interface Presenter
+
+HomeActivity .up.|> View
+HomeActivity -right-> HomePresenter
+HomePresenter --> View
+HomePresenter .right.> Presenter
+HomePresenter --> HomeModel
+HomeModel ..|> Model
+hide member
+@enduml

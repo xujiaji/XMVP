@@ -180,6 +180,8 @@ public class HomeActivity extends XBaseActivity<HomePresenter> implements HomeCo
 }
 ```
 
+#### Home UML
+![mvp uml](display/mvp.svg)
 
 # License
 ```
