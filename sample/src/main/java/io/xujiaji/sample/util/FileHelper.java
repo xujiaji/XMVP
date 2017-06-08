@@ -159,12 +159,13 @@ public class FileHelper {
      */
     public String getAppCacheDir() {
         String cachePath = null;
-        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
-                || !Environment.isExternalStorageRemovable()) {
-            cachePath = App.getInstanse().getExternalCacheDir().getPath();
-        } else {
+//        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+//                || !Environment.isExternalStorageRemovable()) {
+//            File f = App.getInstanse().getExternalCacheDir();
+//            cachePath = App.getInstanse().getExternalCacheDir().getPath();
+//        } else {
             cachePath = App.getInstanse().getCacheDir().getPath();
-        }
+//        }
         return cachePath;
     }
 

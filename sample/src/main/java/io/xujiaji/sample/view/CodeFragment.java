@@ -6,6 +6,7 @@ import android.os.Bundle;
 import java.io.File;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.xujiaji.sample.R;
 import io.xujiaji.sample.contract.CodeContract;
 import io.xujiaji.sample.presenter.CodePresenter;
@@ -35,7 +36,8 @@ public class CodeFragment extends XBaseFragment<CodePresenter> implements CodeCo
     @Override
     protected void onInit() {
         super.onInit();
-        codeView.setTheme(CodeViewTheme.ANDROIDSTUDIO).fillColor();;
+        ButterKnife.bind(this, getRootView());
+        codeView.setTheme(CodeViewTheme.ANDROIDSTUDIO).fillColor();
         File file = (File) getArguments().getSerializable(KEY);
         presenter.readCodeByFile(getActivity(), file);
     }
