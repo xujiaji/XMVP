@@ -71,6 +71,8 @@ public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatA
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.end();
+        if (presenter != null) {
+            presenter.end();
+        }
     }
 }
