@@ -27,3 +27,13 @@ dependencies {
 }
 apply from: 'install.gradle'
 apply from: 'bintray.gradle'
+javadoc {
+    options{
+        encoding "UTF-8"
+        charSet 'UTF-8'
+        author true
+        version true
+        links ""
+        title ""
+    }
+}
