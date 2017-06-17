@@ -1,5 +1,5 @@
 # XMVP
-[![GitHub release](https://img.shields.io/badge/release-1.0.1-red.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.0.1-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.0.1) [![Github release download](https://img.shields.io/badge/download-jar-orange.svg)](https://github.com/xujiaji/XMVP/releases/download/1.0.1/xmvp_1_0_1.jar)
+[![GitHub release](https://img.shields.io/badge/release-1.0.2-red.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.0.2-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.0.2) [![Github release download](https://img.shields.io/badge/download-jar-orange.svg)](https://github.com/xujiaji/XMVP/releases/download/1.0.2/xmvp-release.aar)
 
 # 中文文档: [XMVP（简洁的MVP框架）](http://www.jianshu.com/p/b60e8ef138d1)
 
@@ -9,7 +9,7 @@
 ### Add xmvp dependency into your build.gradle
 ```
 dependencies {
-    compile 'com.github.xujiaji:xmvp:1.0.1'
+    compile 'com.github.xujiaji:xmvp:1.0.2'
 }
 ```
 ### step1:define a contract
