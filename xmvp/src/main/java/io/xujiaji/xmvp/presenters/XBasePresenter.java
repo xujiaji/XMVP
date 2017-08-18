@@ -19,7 +19,7 @@ package io.xujiaji.xmvp.presenters;
 import io.xujiaji.xmvp.contracts.XContract;
 
 /**
- * Created by jiana on 16-11-4.
+ * MVP：Presenter基类
  */
 
 public class XBasePresenter<T extends XContract.View, E extends XContract.Model> {
@@ -30,13 +30,15 @@ public class XBasePresenter<T extends XContract.View, E extends XContract.Model>
         this.view = (T) view;
         this.model = (E) model;
     }
-//    public XBasePresenter(T view, E model) {
-//        this.view = view;
-//        this.model = model;
-//    }
 
+    /**
+     * 当onCreate或onCreateView方法执行完毕将会调用
+     */
     public void start() {}
 
+    /**
+     * 当onDestroy或onDestroyView方法执行完毕将会调用
+     */
     public void end() {
         view = null;
         model = null;

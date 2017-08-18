@@ -1,7 +1,25 @@
 # XMVP
-[![GitHub release](https://img.shields.io/badge/release-1.0.2-red.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.0.2-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.0.2) [![Github release download](https://img.shields.io/badge/download-jar-orange.svg)](https://github.com/xujiaji/XMVP/releases/download/1.0.2/xmvp-release.aar)
+[![GitHub release](https://img.shields.io/badge/release-1.1.0-red.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.1.0-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.1.0) 
 
 # 中文文档: [XMVP（简洁的MVP框架）](http://www.jianshu.com/p/b60e8ef138d1)
+
+# Update
+> v1.1.0 Add a fragment of the extended V4 package in the 'io.xujiaji.xmvp.view.base.v4' package.
+
+# Introduction
+1. You need to customize the 'View', 'Presenter', 'Model' subclasses inherited from 'XContract'.
+2. You need a class that implements the just-defined 'XContract.Presenter' subclass interface.
+3. You need to extend the 'XBasePresenter' to make it implement the 'XContract.Presenter' subinterface defined in step 1 and add two generics: the first is the View interface and the second is the Model implementation class.
+4. You need to extend 'XBaseActivity' or 'XBaseFragment' so that it implements the 'XContract.View' subinterface defined in step 1 and add the 'XBasePresenter' implementation class in step 3 to generic.
+
+just now:
+
+- You can call the method in step 2 directly through the presenter in the Activity or Fragment
+- You can call the definition of the View interface in Presenter method, and can be called by model in step 2 Model implementation of the class method
+- and the start and end methods in Presenter for the start and end of the Activity and Fragmentt lifecycle.
+- through XMVP you do not care about View, Presenter, Model is how to connect, you can easily decouple the project.
+- Finally you can easily build the code using the '[MVPManager](https://github.com/xujiaji/MVPManager)' plugin
+
 
 # How to use?
 > Just need 4 steps. 
@@ -9,7 +27,7 @@
 ### Add xmvp dependency into your build.gradle
 ```
 dependencies {
-    compile 'com.github.xujiaji:xmvp:1.0.2'
+    compile 'com.github.xujiaji:xmvp:1.1.0'
 }
 ```
 ### step1:define a contract

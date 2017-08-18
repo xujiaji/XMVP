@@ -1,23 +1,8 @@
-/*
- * Copyright 2016 XuJiaji
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package io.xujiaji.xmvp.view.base;
+package io.xujiaji.xmvp.view.base.v4;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +11,10 @@ import io.xujiaji.xmvp.presenters.XBasePresenter;
 import io.xujiaji.xmvp.utils.GenericHelper;
 
 /**
- * 项目中Fragment的基类
+ *
+ * 继承于v4包中的Fragment
  */
+
 public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment {
 
     protected T presenter;
@@ -55,6 +42,7 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment {
             presenter.start();
         }
     }
+
 
     /**
      * 添加监听

@@ -16,7 +16,7 @@
 package io.xujiaji.xmvp.contracts;
 
 /**
- * Created by jiana on 16-7-22.
+ * MVP接口
  */
 public interface XContract {
     interface Presenter {
