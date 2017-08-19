@@ -1,10 +1,10 @@
 # XMVP
-[![GitHub release](https://img.shields.io/badge/release-1.1.0-red.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.1.0-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.1.0) 
+[![GitHub release](https://img.shields.io/badge/release-1.1.1-red.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.1.1-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.1.1) 
 
 # 中文文档: [XMVP（简洁的MVP框架）](http://www.jianshu.com/p/b60e8ef138d1)
 
 # Update
-> v1.1.0 Add a fragment of the extended V4 package in the 'io.xujiaji.xmvp.view.base.v4' package.
+> v1.1.1 Add a fragment of the extended V4 package in the 'io.xujiaji.xmvp.view.base.v4' package.
 
 # Introduction
 1. You need to customize the 'View', 'Presenter', 'Model' subclasses inherited from 'XContract'.
@@ -27,7 +27,7 @@ just now:
 ### Add xmvp dependency into your build.gradle
 ```
 dependencies {
-    compile 'com.github.xujiaji:xmvp:1.1.0'
+    compile 'com.github.xujiaji:xmvp:1.1.1'
 }
 ```
 ### step1:define a contract

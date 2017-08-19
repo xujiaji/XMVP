@@ -10,7 +10,7 @@ android {
         minSdkVersion setup.minSdk
         targetSdkVersion setup.targetSdk
         versionCode 2
-        versionName "1.1.0"
+        versionName "1.1.1"
     }
     buildTypes {
         release {

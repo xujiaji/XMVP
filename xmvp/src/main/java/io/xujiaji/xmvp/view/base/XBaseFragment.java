@@ -78,6 +78,8 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        presenter.end();
+        if (presenter != null) {
+            presenter.end();
+        }
     }
 }
