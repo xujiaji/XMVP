@@ -17,6 +17,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import io.xujiaji.sample.App;
+import io.xujiaji.sample.general.RequestListener;
 import io.xujiaji.sample.model.entity.FileEntity;
 
 /**
@@ -39,7 +40,7 @@ public class FileHelper {
     /**
      * 解压
      */
-    public void unzip(Activity activity, final Listener listener) {
+    public void unzip(Activity activity, final RequestListener<List<FileEntity>> listener) {
         try {
             unzipModuleData(new File(getAppCacheDir()),
                     App.getInstanse().getAssets().open(FILE_NAME));
@@ -56,7 +57,7 @@ public class FileHelper {
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    listener.success(fileEntities);
+                    listener.requestSuccess(fileEntities);
                 }
             });
         } catch (Exception e) {
@@ -129,7 +130,7 @@ public class FileHelper {
         }
     }
 
-    public void readText(Activity activity, File file, final FileHelper.Listener<String> listener) {
+    public void readText(Activity activity, File file, final RequestListener<String> listener) {
         try {
             FileReader fr = new FileReader(file);
             final StringBuilder sb = new StringBuilder();
@@ -143,7 +144,7 @@ public class FileHelper {
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    listener.success(sb.toString());
+                    listener.requestSuccess(sb.toString());
                 }
             });
 
@@ -169,10 +170,6 @@ public class FileHelper {
         return cachePath;
     }
 
-
-    public interface Listener<T> {
-        void success(T t);
-    }
 }
 
 

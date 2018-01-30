@@ -43,4 +43,12 @@ public class XBasePresenter<T extends XContract.View, E extends XContract.Model>
         view = null;
         model = null;
     }
+
+    /**
+     * view是否还存在
+     */
+    public boolean viewIsExist()
+    {
+        return view != null;
+    }
 }

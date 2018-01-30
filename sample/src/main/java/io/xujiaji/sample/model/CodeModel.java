@@ -20,6 +20,7 @@ import android.app.Activity;
 import java.io.File;
 
 import io.xujiaji.sample.contract.CodeContract;
+import io.xujiaji.sample.general.RequestListener;
 import io.xujiaji.sample.util.FileHelper;
 
 /**
@@ -28,7 +29,7 @@ import io.xujiaji.sample.util.FileHelper;
 public class CodeModel implements CodeContract.Model {
 
     @Override
-    public void readCode(final Activity activity, final File file, final FileHelper.Listener<String> listener) {
+    public void readCode(final Activity activity, final File file, final RequestListener<String> listener) {
         new Thread() {
             @Override
             public void run() {

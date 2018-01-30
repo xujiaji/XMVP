@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import java.util.List;
 
+import io.xujiaji.sample.general.RequestListener;
 import io.xujiaji.sample.model.entity.FileEntity;
 import io.xujiaji.sample.util.FileHelper;
 import io.xujiaji.xmvp.contracts.XContract;
@@ -23,6 +24,6 @@ public interface HomeContract {
     }
 
     interface Model extends XContract.Model {
-        void scanFile(final Activity activity, final FileHelper.Listener<List<FileEntity>> listener);
+        void scanFile(final Activity activity, final RequestListener<List<FileEntity>> listener);
     }
 }

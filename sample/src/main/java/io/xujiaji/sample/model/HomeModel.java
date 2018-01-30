@@ -20,6 +20,7 @@ import android.app.Activity;
 import java.util.List;
 
 import io.xujiaji.sample.contract.HomeContract;
+import io.xujiaji.sample.general.RequestListener;
 import io.xujiaji.sample.model.entity.FileEntity;
 import io.xujiaji.sample.util.FileHelper;
 
@@ -28,7 +29,7 @@ import io.xujiaji.sample.util.FileHelper;
  */
 public class HomeModel implements HomeContract.Model {
     @Override
-    public void scanFile(final Activity activity, final FileHelper.Listener<List<FileEntity>> listener) {
+    public void scanFile(final Activity activity, final RequestListener<List<FileEntity>> listener) {
         new Thread() {
             @Override
             public void run() {

@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import java.io.File;
 
+import io.xujiaji.sample.general.RequestListener;
 import io.xujiaji.sample.util.FileHelper;
 import io.xujiaji.xmvp.contracts.XContract;
 
@@ -23,6 +24,6 @@ public interface CodeContract {
 
     interface Model extends XContract.Model {
 
-        void readCode(final Activity activity, final File file, final FileHelper.Listener<String> listener);
+        void readCode(final Activity activity, final File file, final RequestListener<String> listener);
     }
 }
