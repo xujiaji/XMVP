@@ -39,6 +39,9 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         try{
             presenter = GenericHelper.newPresenter(this);
+            if (presenter != null) {
+                presenter.start();
+            }
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,14 +49,6 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment {
         onInit();
         onListener();
         return rootView;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        if (presenter != null) {
-            presenter.start();
-        }
     }
 
     /**

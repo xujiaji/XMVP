@@ -36,14 +36,15 @@ public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatA
         setContentView(getContentId());
         try{
             presenter = GenericHelper.newPresenter(this);
+            if (presenter != null) {
+                presenter.start();
+            }
         }catch (Exception e) {
             e.printStackTrace();
         }
         onInit();
         onListener();
-        if (presenter != null) {
-            presenter.start();
-        }
+
     }
 
     /**
