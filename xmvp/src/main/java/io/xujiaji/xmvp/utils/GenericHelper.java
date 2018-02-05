@@ -33,7 +33,7 @@ public class GenericHelper {
         ParameterizedType parameterizedType = (ParameterizedType) type;
         Type[] types = parameterizedType.getActualTypeArguments();
         for (Type t : types) {
-            if (isPresenter(t, filterClass)) {
+            if (isMe(t, filterClass)) {
                 return (Class<T>) t;
             }
         }
@@ -43,13 +43,27 @@ public class GenericHelper {
 //        return (Class<T>) types[0];
     }
 
-    private static boolean isPresenter(Type t, Class<?> filterClass) {
-        Class<?> aClass = (Class<?>) t;
+    private static <T> Class<T> getViewClass(Class<?> klass, Class<?> filterClass)
+    {
+        if (isMe(klass, filterClass))
+        {
+            return (Class<T>) klass;
+        }
+        return getViewClass((Class<?>) klass.getGenericSuperclass(), filterClass);
+    }
+
+    private static boolean isMe(Class<?> aClass, Class<?> filterClass)
+    {
         Class<?>[] classes = aClass.getInterfaces();
         for (Class<?> c : classes) {
-            return c == filterClass || isPresenter(c, filterClass);
+            return c == filterClass || isMe(c, filterClass);
         }
         return false;
+    }
+
+    private static boolean isMe(Type t, Class<?> filterClass) {
+        Class<?> aClass = (Class<?>) t;
+        return isMe(aClass, filterClass);
     }
 
     public static  <T> T newPresenter(Object obj) {
@@ -58,8 +72,8 @@ public class GenericHelper {
         }
         try {
             Class<?> currentClass = obj.getClass();
-//            Class<?> viewClass = getViewInterface(currentClass);
-            Class<?> presenterClass = getGenericClass(currentClass, XContract.Presenter.class);
+            Class<?> viewClass = getViewClass(currentClass, XContract.View.class);
+            Class<?> presenterClass = getGenericClass(viewClass, XContract.Presenter.class);
             Class<?> modelClass = getGenericClass(presenterClass, XContract.Model.class);
 //            Constructor construct = presenterClass.getConstructor(viewClass, modelClass);
             XBasePresenter<?,?> xBasePresenter = (XBasePresenter<?, ?>) presenterClass.newInstance();

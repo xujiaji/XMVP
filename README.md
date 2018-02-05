@@ -1,10 +1,14 @@
 ![banner](display/banner.png)
-[![GitHub release](https://img.shields.io/badge/release-1.1.2-red.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.1.2-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.1.2) 
+[![GitHub release](https://img.shields.io/badge/release-1.1.4-red.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.1.4-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.1.4) 
 
 # 中文文档: [XMVP（简洁的MVP框架）](https://juejin.im/post/5a31ecfaf265da4325294fa9)
 
 # Update
-> v1.1.2 XBasePresenter add judgment to determine whether the view still exists
+> v1.1.4 fixes the subclass Activity of the current Activity crashes because it can not create a Presenter.
+
+> v1.1.3 Called after the start() method in Presenter has been put into View's onInit() method.
+
+> v1.1.2 XBasePresenter add judgment to determine whether the view still exists.
 
 > v1.1.1 Add a fragment of the extended V4 package in the 'io.xujiaji.xmvp.view.base.v4' package.
 
@@ -29,7 +33,7 @@ just now:
 ### Add xmvp dependency into your build.gradle
 ```
 dependencies {
-    compile 'com.github.xujiaji:xmvp:1.1.2'
+    compile 'com.github.xujiaji:xmvp:1.1.4'
 }
 ```
 ### step1:define a contract
