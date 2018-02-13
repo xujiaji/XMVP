@@ -21,10 +21,6 @@ import java.lang.reflect.Type;
 import io.xujiaji.xmvp.contracts.XContract;
 import io.xujiaji.xmvp.presenters.XBasePresenter;
 
-
-/**
- * Created by qibin on 2015/11/15.
- */
 public class GenericHelper {
 
     public static <T> Class<T> getGenericClass(Class<?> klass, Class<?> filterClass) {
@@ -43,13 +39,13 @@ public class GenericHelper {
 //        return (Class<T>) types[0];
     }
 
-    private static <T> Class<T> getViewClass(Class<?> klass, Class<?> filterClass)
+    private static Class<?> getViewClass(Class<?> klass, Class<?> filterClass)
     {
-        if (isMe(klass, filterClass))
+        for (Class c : klass.getInterfaces())
         {
-            return (Class<T>) klass;
+            if (filterClass.isAssignableFrom(c)) return klass;
         }
-        return getViewClass((Class<?>) klass.getGenericSuperclass(), filterClass);
+        return getViewClass(klass.getSuperclass(), filterClass);
     }
 
     private static boolean isMe(Class<?> aClass, Class<?> filterClass)
