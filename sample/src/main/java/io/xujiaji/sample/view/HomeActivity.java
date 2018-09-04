@@ -35,8 +35,7 @@ public class HomeActivity extends XBaseActivity<HomePresenter> implements HomeCo
     AppBarLayout appBarLayout;
 
     @Override
-    protected void onInit() {
-        super.onInit();
+    public void onInitCircle() {
         ButterKnife.bind(this);
         toolbar.setTitle(R.string.xmvp_folder);
         setSupportActionBar(toolbar);
@@ -47,8 +46,7 @@ public class HomeActivity extends XBaseActivity<HomePresenter> implements HomeCo
     }
 
     @Override
-    protected void onListener() {
-        super.onListener();
+    public void onListenerCircle() {
         adapter.setOpenLister(new HomeAdapter.OpenListener() {
             @Override
             public void open(File file) {
@@ -116,7 +114,7 @@ public class HomeActivity extends XBaseActivity<HomePresenter> implements HomeCo
     }
 
     @Override
-    protected int getContentId() {
+    public int layoutId() {
         return R.layout.activity_home;
     }
 

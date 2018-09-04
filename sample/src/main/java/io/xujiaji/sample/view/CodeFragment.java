@@ -2,6 +2,7 @@ package io.xujiaji.sample.view;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 
 import java.io.File;
 
@@ -21,6 +22,7 @@ import thereisnospon.codeview.CodeViewTheme;
 public class CodeFragment extends XBaseFragment<CodePresenter> implements CodeContract.View {
     public static final String KEY = "file";
     private ProgressDialog dialog;
+    private File mFile;
 
     public static CodeFragment newInstance(File file) {
         CodeFragment cf = new CodeFragment();
@@ -34,12 +36,24 @@ public class CodeFragment extends XBaseFragment<CodePresenter> implements CodeCo
     CodeView codeView;
 
     @Override
-    protected void onInit() {
-        super.onInit();
+    public int layoutId() {
+        return R.layout.fragment_code;
+    }
+
+    @Override
+    public void onArgumentsHandle(@NonNull Bundle bundle) {
+        mFile = (File) bundle.getSerializable(KEY);
+    }
+
+    @Override
+    public void onInitCircle() {
         ButterKnife.bind(this, getRootView());
         codeView.setTheme(CodeViewTheme.ANDROIDSTUDIO).fillColor();
-        File file = (File) getArguments().getSerializable(KEY);
-        presenter.readCodeByFile(getActivity(), file);
+    }
+
+    @Override
+    public void onLazyLoad() {
+        presenter.readCodeByFile(getActivity(), mFile);
     }
 
     @Override
@@ -64,8 +78,7 @@ public class CodeFragment extends XBaseFragment<CodePresenter> implements CodeCo
     }
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_code;
+    public boolean isInViewPager() {
+        return false;
     }
-
 }

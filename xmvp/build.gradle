@@ -1,6 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.neenbedankt.android-apt'
-
 
 android {
     compileSdkVersion setup.compileSdk
@@ -21,9 +19,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    provided "com.android.support:appcompat-v7:${versions.supportLib}"
-    provided "junit:junit:${versions.junit}"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compileOnly "com.android.support:appcompat-v7:${versions.supportLib}"
+    compileOnly "junit:junit:${versions.junit}"
 }
 apply from: 'install.gradle'
 apply from: 'bintray.gradle'
@@ -33,7 +31,7 @@ javadoc {
         charSet 'UTF-8'
         author true
         version true
-        links ""
-        title ""
+        links "https://github.com/xujiaji/XMVP"
+        title "XMVP Doc"
     }
 }

@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion setup.compileSdk
@@ -15,16 +14,16 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':xmvp')
-    testCompile "junit:junit:${versions.junit}"
-    compile "com.android.support:support-v4:${versions.supportLib}"
-    compile "com.android.support:appcompat-v7:${versions.supportLib}"
-    compile "com.android.support:recyclerview-v7:${versions.supportLib}"
-    compile "com.android.support:design:${versions.supportLib}"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':xmvp')
+    testImplementation "junit:junit:${versions.junit}"
+    implementation "com.android.support:support-v4:${versions.supportLib}"
+    implementation "com.android.support:appcompat-v7:${versions.supportLib}"
+    implementation "com.android.support:recyclerview-v7:${versions.supportLib}"
+    implementation "com.android.support:design:${versions.supportLib}"
     //绑定UI
-    compile "com.jakewharton:butterknife:${versions.butterknife}"
-    apt "com.jakewharton:butterknife-compiler:${versions.butterknife}"
-    compile "thereisnospon.codeview:codeview:${versions.codeview}"
-    compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:${versions.rvHolder}"
+    implementation "com.jakewharton:butterknife:${versions.butterknife}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${versions.butterknife}"
+    implementation "thereisnospon.codeview:codeview:${versions.codeview}"
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:${versions.rvHolder}"
 }

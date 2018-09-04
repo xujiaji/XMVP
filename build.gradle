@@ -3,12 +3,12 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -21,6 +21,7 @@ allprojects {
         maven {
             url "https://jitpack.io"
         }
+        google()
     }
 }
 
@@ -30,18 +31,18 @@ task clean(type: Delete) {
 
 
 ext {
-    setup = [compileSdk: 24,
-             buildTools: "25",
+    setup = [compileSdk: 27,
+             buildTools: "27.0.3",
              minSdk    : 14,
-             targetSdk : 24]
+             targetSdk : 27]
 
     versions = [
-            supportLib: "25.0.0",
+            supportLib: "27.1.1",
             glide : "3.7.0",
             junit : "4.12",
-            butterknife : "8.4.0",
+            butterknife : "8.6.0",
             codeview : "0.3.1",
-            rvHolder : "2.6.1"
+            rvHolder : "2.9.41"
     ]
 
     bintrayRepo = 'maven'
@@ -56,7 +57,7 @@ ext {
     siteUrl = 'https://github.com/xujiaji/XMVP'
     gitUrl = 'https://github.com/xujiaji/XMVP.git'
 
-    libraryVersion = '1.1.5'
+    libraryVersion = '1.2.0'
 
     developerId = 'xujiaji'
     developerName = 'xujiaji'
