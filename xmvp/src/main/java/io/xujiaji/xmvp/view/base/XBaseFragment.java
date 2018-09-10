@@ -16,6 +16,7 @@
 package io.xujiaji.xmvp.view.base;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -65,9 +66,8 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment i
     private boolean forceLoad = false;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        onBeforeCreateCircle();
-        super.onCreate(savedInstanceState);
+    public void onAttach(Context context) {
+        super.onAttach(context);
         try{
             presenter = GenericHelper.newPresenter(this);
             if (presenter != null) {
@@ -76,6 +76,13 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment i
         }catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        onBeforeCreateCircle();
+        super.onCreate(savedInstanceState);
 
         if (savedInstanceState != null) {
             onBundleHandle(savedInstanceState);
@@ -209,6 +216,11 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment i
     public void onDestroyView() {
         super.onDestroyView();
         isPrepared = false;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
         if (presenter != null) {
             presenter.end();
         }
