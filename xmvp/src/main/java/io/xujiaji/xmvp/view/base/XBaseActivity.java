@@ -73,6 +73,13 @@ public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatA
     }
 
     @Override
+    public int layoutId() { return 0; }
+
+    @Override
+    public void onInitCircle() { }
+
+
+    @Override
     public void onListenerCircle() {
 
     }
