@@ -23,7 +23,7 @@ import android.support.annotation.NonNull;
 /**
  * author: xujiaji
  * created on: 2018/9/4 10:57
- * description: 定义View相关周期
+ * description: 定义Fragment View相关周期
  */
 public interface XFragViewCycle extends XViewCycle {
 
