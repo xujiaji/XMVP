@@ -22,13 +22,15 @@ import io.xujiaji.sample.model.entity.FileEntity;
 
 /**
  * Created by jiana on 16-11-21.
- * 文件帮助类
+ * 文件帮助类 <br />
+ * file helper class
  */
 
 public class FileHelper {
 
     /**
-     * assets压缩包文件名
+     * assets压缩包文件名 <br />
+     * zip file name in assets folder
      */
     public static final String FILE_NAME = "data.zip";
     public static final int BUFFER_SIZE = 1024;
@@ -154,8 +156,8 @@ public class FileHelper {
     }
 
     /**
-     * 获取缓存目录
-     *
+     * 获取缓存目录 <br />
+     * Get cache folder
      * @return
      */
     public String getAppCacheDir() {

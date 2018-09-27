@@ -25,10 +25,10 @@ import android.support.v7.app.AppCompatActivity;
 import io.xujiaji.xmvp.presenters.XBasePresenter;
 import io.xujiaji.xmvp.utils.GenericHelper;
 import io.xujiaji.xmvp.view.interfaces.XActivityCycle;
-import io.xujiaji.xmvp.view.interfaces.XViewCycle;
 
 /**
- * 项目中Activity的基类
+ * 项目中Activity的基类 <br />
+ * base Activity class
  */
 public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatActivity implements XActivityCycle {
     protected T presenter;
@@ -50,9 +50,11 @@ public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatA
         beforeSetContentView();
         if (savedInstanceState != null) {
             // 页面已被启用，但因内存不足页面被系统销毁过
+            // page start when the page was destroyed by the system due to insufficient memory
             onBundleHandle(savedInstanceState);
         } else {
             // 第一次进入页面获取上个页面传递过来的数据
+            // handle intent when first enter the page
             Intent intent = getIntent();
             if (intent != null) {
                 onIntentHandle(intent);
@@ -74,6 +76,7 @@ public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatA
     }
 
     // 非standard的启动模式，第二次之后不会进入onCreate周期，转而是onNewIntent
+    // Non-standard startup mode
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -95,7 +98,8 @@ public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatA
     }
 
     /**
-     * 处理上个页面传递过来的值
+     * 处理上个页面传递过来的值 <br />
+     * Handle passed the previous page intent when first enter the page
      */
     @Override
     public void onIntentHandle(@NonNull Intent intent) {}
@@ -119,26 +123,30 @@ public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatA
 
     /**
      * 需要在SetContentView之前做的操作
-     * @deprecated 将弃用该方法，需尽快改为使用 {@link #onBeforeCreateCircle}
+     * @deprecated 将弃用该方法，需尽快改为使用 {@link #onBeforeCreateCircle} <br />
+     * use {@link #onBeforeCreateCircle()}, now
      */
     protected void beforeSetContentView() {
     }
 
     /**
      * 在这里面进行初始化
-     * @deprecated 将弃用该方法，需尽快改为使用 {@link #onInitCircle()}
+     * @deprecated 将弃用该方法，需尽快改为使用 {@link #onInitCircle()} <br />
+     * use {@link #onInitCircle()}, now
      */
     protected void onInit() {}
 
     /**
      * 这里面写监听事件
-     * @deprecated 将弃用该方法，需尽快改为使用 {@link #onListenerCircle()}
+     * @deprecated 将弃用该方法，需尽快改为使用 {@link #onListenerCircle()} <br />
+     * use {@link #onListenerCircle()}, now
      */
     protected void onListener() {}
 
     /**
      * 获取布局的id
-     * @deprecated 将弃用该方法，需尽快改为使用 {@link #layoutId()}
+     * @deprecated 将弃用该方法，需尽快改为使用 {@link #layoutId()} <br />
+     * use {@link #layoutId()}, now
      */
     protected int getContentId() { return 0; }
 

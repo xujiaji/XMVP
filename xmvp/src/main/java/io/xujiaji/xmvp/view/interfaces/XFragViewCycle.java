@@ -23,12 +23,12 @@ import android.support.annotation.NonNull;
 /**
  * author: xujiaji
  * created on: 2018/9/4 10:57
- * description: 定义Fragment View相关周期
+ * description: 定义Fragment View相关周期 <br /> Define Fragment View related Cycle
  */
 public interface XFragViewCycle extends XViewCycle {
 
     /**
-     * 处理{@link Fragment#getArguments()} 的值，如果有，才会调用
+     * 处理{@link Fragment#getArguments()} 的值，如果有才会调用  <br /> Handle the value of {@link Fragment#getArguments()} , if it is there, it will be called
      * @param bundle
      */
     void onArgumentsHandle(@NonNull Bundle bundle);
@@ -40,8 +40,8 @@ public interface XFragViewCycle extends XViewCycle {
     void onLazyLoad();
 
     /**
-     * 忽略{@link #isFirstLoad() }的值，强制刷新数据，<br>
-     * 但仍要 {@link #isFragmentVisible()} && {@link #isPrepared()}
+     * 忽略{@link #isFirstLoad() }的值，强制刷新数据，但仍要满足 {@link #isFragmentVisible()} && {@link #isPrepared()} <br />
+     * Ignore the value of {@link #isFirstLoad() } to force refresh data, but still satisfy {@link #isFragmentVisible()} && {@link #isPrepared()}
      */
     void setForceLoad(boolean forceLoad);
 
@@ -53,6 +53,11 @@ public interface XFragViewCycle extends XViewCycle {
 
     boolean isFragmentVisible();
 
+    /**
+     * 是否是在ViewPager中，默认为true
+     * whether in ViewPager, default is true
+     * @return
+     */
     boolean isInViewPager();
 
 }

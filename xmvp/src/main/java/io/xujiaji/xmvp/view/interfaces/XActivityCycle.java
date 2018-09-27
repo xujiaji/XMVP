@@ -22,11 +22,11 @@ import android.support.annotation.NonNull;
 /**
  * author: xujiaji
  * created on: 2018/9/11 15:05
- * description: 定义Activity View相关周期
+ * description: 定义Activity View相关周期 <br /> Define Activity View related Cycle
  */
 public interface XActivityCycle extends XViewCycle {
     /**
-     * 处理上个页面传递过来的数据
+     * 处理上个页面传递过来的数据 <br /> Handle the data passed from the previous page
      */
     void onIntentHandle(@NonNull Intent intent);
 }

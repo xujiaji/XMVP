@@ -13,29 +13,30 @@ import io.xujiaji.xmvp.presenters.XBasePresenter;
 import io.xujiaji.xmvp.utils.GenericHelper;
 import io.xujiaji.xmvp.view.interfaces.XFragViewCycle;
 
+
 /**
  *
- * 继承于v4包中的Fragment
+ * 项目中Fragment的基类 <br /> base Fragment class <br />
+ * 部分代码参照(reference)：https://github.com/xmagicj/LazyFragment/blob/master/app/src/main/java/com/xmagicj/android/lazyfragment/BaseFragment.java
  */
-
-public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment implements XFragViewCycle{
+public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment implements XFragViewCycle {
 
     protected T presenter;
 
     private View rootView;
 
     /**
-     * Fragment是否可见状态
+     * Fragment是否可见状态 <br /> whether the Fragment is visible
      */
     private boolean isFragmentVisible;
 
     /**
-     * View已经初始化完成
+     * Layout已经初始化完成 <br /> Layout has been initialized
      */
     private boolean isPrepared;
 
     /**
-     * 是否第一次加载
+     * 是否第一次加载       <br /> whether first load
      */
     private boolean isFirstLoad = true;
 
@@ -46,6 +47,13 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment i
      * 不要new 新的 PagerAdapter 而采取reset数据的方式
      * 所以要求Fragment重新走initData方法
      * 故使用 {@link #setForceLoad(boolean)}来让Fragment下次执行initData
+     * </pre>
+     *
+     * force load
+     * <pre>
+     *     ignore isFirstLoad value, but still keep Visible & Prepared.
+     *     use this when PagerAdapter need refresh multiple Fragment.
+     *
      * </pre>
      */
     private boolean forceLoad = false;
@@ -101,7 +109,7 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment i
     }
 
     /***
-     *  如果是与ViewPager一起使用，调用的是setUserVisibleHint
+     * 如果是与ViewPager一起使用，调用的是setUserVisibleHint <br /> If used with ViewPager, the call to setUserVisibleHint
      * @param isVisibleToUser 是否显示出来了
      */
     @Override
@@ -115,8 +123,8 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment i
     }
 
     /**
-     * 如果是通过FragmentTransaction的show和hide的方法来控制显示，调用的是onHiddenChanged.
-     * 若是初始就show的Fragment 为了触发该事件 需要先hide再show
+     * 如果是通过FragmentTransaction的show和hide的方法来控制显示，调用的是onHiddenChanged. 此时您因该让 {@link #isInViewPager()} 返回false <br />
+     * If use by FragmentTransaction show or hide, the call to onHiddenChanged. now you need return false in {@link #isInViewPager()}
      *
      * @param hidden hidden True if the fragment is now hidden, false if it is not
      * visible.
@@ -165,19 +173,22 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment i
 
     /**
      * 在这里面进行初始化
-     * @deprecated 将弃用该方法，需尽快改为使用 {@link #onInitCircle()}
+     * @deprecated 将弃用该方法，需尽快改为使用 {@link #onInitCircle()} <br />
+     * use {@link #onInitCircle()}, now
      */
     protected void onInit() {}
 
     /**
      * 这里面写监听事件
-     * @deprecated 将弃用该方法，需尽快改为使用 {@link #onListenerCircle()}
+     * @deprecated 将弃用该方法，需尽快改为使用 {@link #onListenerCircle()} <br />
+     * use {@link #onListenerCircle()}, now
      */
     protected void onListener() {}
 
     /**
      * 获取布局的id
-     * @deprecated 将弃用该方法，需尽快改为使用 {@link #layoutId()}
+     * @deprecated 将弃用该方法，需尽快改为使用 {@link #layoutId()} <br />
+     * use {@link #layoutId()}, now
      */
     protected int getLayoutId() {
         return 0;

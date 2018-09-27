@@ -59,7 +59,7 @@ public class CodeFragment extends XBaseFragment<CodePresenter> implements CodeCo
     @Override
     public void showLoadCode() {
         dialog = new ProgressDialog(getActivity());
-        dialog.setTitle("正在加载数据...");
+        dialog.setTitle("loading...");
         dialog.setCancelable(false);
         dialog.show();
     }

@@ -16,7 +16,8 @@
 package io.xujiaji.xmvp.contracts;
 
 /**
- * MVP接口
+ * MVP基础接口 <br />
+ * MVP base interface
  */
 public interface XContract {
     interface Presenter {

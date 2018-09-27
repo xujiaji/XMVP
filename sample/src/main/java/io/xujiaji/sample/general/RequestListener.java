@@ -1,7 +1,8 @@
 package io.xujiaji.sample.general;
 
 /**
- * 通用请求监听
+ * 通用请求监听 <br/>
+ * Generic request listener
  * Created by jiaji on 2018/1/30.
  */
 

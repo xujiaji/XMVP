@@ -63,7 +63,7 @@ public class HomeActivity extends XBaseActivity<HomePresenter> implements HomeCo
     }
 
     /**
-     * 显示代码
+     * 显示代码<br /> show code detail
      *
      * @param file
      */
@@ -79,7 +79,8 @@ public class HomeActivity extends XBaseActivity<HomePresenter> implements HomeCo
     }
 
     /**
-     * 显示返回按钮和标题，传入null则隐藏返回按钮
+     * 显示返回按钮和标题，传入null则隐藏返回按钮 <br />
+     * show back button and title, hide back when passing in null
      * @param title
      */
     private void showBlack(String title) {
@@ -99,7 +100,7 @@ public class HomeActivity extends XBaseActivity<HomePresenter> implements HomeCo
     @Override
     public void loadStart() {
         dialog = new ProgressDialog(this);
-        dialog.setTitle("正在加载数据");
+        dialog.setTitle("loading data...");
         dialog.setCancelable(false);
         dialog.show();
     }

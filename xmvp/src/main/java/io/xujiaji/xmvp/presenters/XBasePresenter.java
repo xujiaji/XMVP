@@ -32,12 +32,14 @@ public class XBasePresenter<T extends XContract.View, E extends XContract.Model>
     }
 
     /**
-     * 当onCreate或onCreateView方法执行完毕将会调用
+     * 当Activity的onCreate或Fragment的onAttach方法执行时将会调用 <br />
+     * call this method when Activity's onCreate or Fragment's onAttach method called
      */
     public void start() {}
 
     /**
-     * 当onDestroy或onDestroyView方法执行完毕将会调用
+     * 当onDestroy或onDetach方法执行时将会调用 <br />
+     * call this method when Activity's onDestroy or Fragment's onDetach method called
      */
     public void end() {
         view = null;
@@ -45,7 +47,8 @@ public class XBasePresenter<T extends XContract.View, E extends XContract.Model>
     }
 
     /**
-     * view是否还存在
+     * view是否还存在 <br />
+     * whether view exist
      */
     public boolean viewIsExist()
     {
