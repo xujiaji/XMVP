@@ -1,5 +1,5 @@
 ![banner](display/banner.png)
-[![GitHub release](https://img.shields.io/badge/release-1.2.2-red.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.2.2-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.2.2) 
+[![GitHub release](https://img.shields.io/badge/size-12%20kb-green.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.2.2-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.2.2) 
 
 # XMVP
 This is a mvp framework to help you easily achieve mvp structure.
@@ -31,12 +31,15 @@ This is a mvp framework to help you easily achieve mvp structure.
 
 ## How to use?
 
-### First, Add xmvp dependency into your build.gradle
+### First, Add xmvp dependency
 ```
 dependencies {
     compile 'com.github.xujiaji:xmvp:1.2.2'
 }
 ```
+or
+
+[![Download aar](https://img.shields.io/badge/download-.aar-red.svg)](https://github.com/xujiaji/XMVP/releases)
 ### Step1:define a contract
 You need to define a contract in contracts package, it contains a extend 'XContract.Presenter' interface and a extend 'XContract.View' interface.
 > Example: [HomeContract.java](./sample/src/main/java/io/xujiaji/sample/contract/HomeContract.java)
