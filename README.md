@@ -1,5 +1,5 @@
 ![banner](display/banner.png)
-[![GitHub release](https://img.shields.io/badge/size-12%20kb-green.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.2.2-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.2.2) 
+[![GitHub release](https://img.shields.io/badge/size-12%20kb-green.svg)](https://github.com/xujiaji/XMVP/releases) [![GitHub release](https://img.shields.io/badge/bintray-1.2.3-brightgreen.svg)](https://bintray.com/xujiaji/maven/xmvp/1.2.3) 
 
 # XMVP
 This is a mvp framework to help you easily achieve mvp structure.
@@ -8,6 +8,8 @@ This is a mvp framework to help you easily achieve mvp structure.
 
 ## Update
 ```
+> v1.2.3 add onPresenterCircle method
+
 > v1.2.2 Fragment lazy load data, and add cycle function in View. Fix some bug.
 
 > v1.1.5 Can not create Presenter after fixing obfuscation
@@ -34,7 +36,7 @@ This is a mvp framework to help you easily achieve mvp structure.
 ### First, Add xmvp dependency
 ```
 dependencies {
-    compile 'com.github.xujiaji:xmvp:1.2.2'
+    compile 'com.github.xujiaji:xmvp:1.2.3'
 }
 ```
 or

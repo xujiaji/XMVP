@@ -20,12 +20,14 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import io.xujiaji.xmvp.presenters.XBasePresenter;
+
 /**
  * author: xujiaji
  * created on: 2018/9/4 10:57
  * description: 定义Fragment View相关周期 <br /> Define Fragment View related Cycle
  */
-public interface XFragViewCycle extends XViewCycle {
+public interface XFragViewCycle<T extends XBasePresenter> extends XViewCycle<T> {
 
     /**
      * 处理{@link Fragment#getArguments()} 的值，如果有才会调用  <br /> Handle the value of {@link Fragment#getArguments()} , if it is there, it will be called

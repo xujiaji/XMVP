@@ -30,11 +30,12 @@ import io.xujiaji.xmvp.view.interfaces.XActivityCycle;
  * 项目中Activity的基类 <br />
  * base Activity class
  */
-public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatActivity implements XActivityCycle {
+public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatActivity implements XActivityCycle<T> {
     protected T presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        onBeforeCreateCircle();
         try{
             presenter = GenericHelper.newPresenter(this);
             if (presenter != null) {
@@ -44,7 +45,7 @@ public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatA
             e.printStackTrace();
         }
 
-        onBeforeCreateCircle();
+        onPresenterCircle(presenter);
         super.onCreate(savedInstanceState);
 
         beforeSetContentView();
@@ -94,6 +95,11 @@ public abstract class XBaseActivity<T extends XBasePresenter> extends AppCompatA
 
     @Override
     public void onBeforeCreateCircle() {
+
+    }
+
+    @Override
+    public void onPresenterCircle(T presenter) {
 
     }
 

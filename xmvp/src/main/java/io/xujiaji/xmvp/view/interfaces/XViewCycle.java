@@ -19,17 +19,21 @@ package io.xujiaji.xmvp.view.interfaces;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import io.xujiaji.xmvp.presenters.XBasePresenter;
+
 /**
  * author: xujiaji
  * created on: 2018/9/4 10:57
  * description: 定义View相关周期 <br /> Define View related Cycle
  */
-public interface XViewCycle {
+public interface XViewCycle<T extends XBasePresenter> {
 
     /**
      * 在 super {@link android.app.Activity#onCreate(Bundle)}之前被调用              <br />  will be called before super class {@link android.app.Activity#onCreate(Bundle)} called
      */
     void onBeforeCreateCircle();
+
+    void onPresenterCircle(T presenter);
 
     /**
      * 在 super {@link android.app.Activity#onCreate(Bundle)}之前被调用，并且有Bundle <br />  will be called before super class {@link android.app.Activity#onCreate(Bundle)} called

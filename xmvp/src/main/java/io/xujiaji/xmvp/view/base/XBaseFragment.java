@@ -33,7 +33,7 @@ import io.xujiaji.xmvp.view.interfaces.XFragViewCycle;
  * 项目中Fragment的基类 <br /> base Fragment class <br />
  * 部分代码参照(reference)：https://github.com/xmagicj/LazyFragment/blob/master/app/src/main/java/com/xmagicj/android/lazyfragment/BaseFragment.java
  */
-public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment implements XFragViewCycle {
+public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment implements XFragViewCycle<T> {
 
     protected T presenter;
 
@@ -84,6 +84,7 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment i
             e.printStackTrace();
         }
 
+        onPresenterCircle(presenter);
     }
 
     @Override
@@ -166,6 +167,11 @@ public abstract class XBaseFragment<T extends XBasePresenter> extends Fragment i
 
     @Override
     public void onBeforeCreateCircle() { }
+
+    @Override
+    public void onPresenterCircle(T presenter) {
+
+    }
 
     @Override
     public void onBundleHandle(@NonNull Bundle savedInstanceState) { }
