@@ -6,7 +6,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.android.tools.build:gradle:3.4.0-alpha02'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         // NOTE: Do not place your application dependencies here; they belong
@@ -31,16 +31,16 @@ task clean(type: Delete) {
 
 
 ext {
-    setup = [compileSdk: 27,
-             buildTools: "27.0.3",
+    setup = [compileSdk: 28,
+             buildTools: "28.0.3",
              minSdk    : 14,
-             targetSdk : 27]
+             targetSdk : 28]
 
     versions = [
-            supportLib: "27.1.1",
-            glide : "3.7.0",
+            supportLib: '1+',
+            glide : "4.8.0",
             junit : "4.12",
-            butterknife : "8.6.0",
+            butterknife : "9.0.0-rc1",
             codeview : "0.3.1",
             rvHolder : "2.9.41"
     ]
@@ -57,7 +57,7 @@ ext {
     siteUrl = 'https://github.com/xujiaji/XMVP'
     gitUrl = 'https://github.com/xujiaji/XMVP.git'
 
-    libraryVersion = '1.2.3'
+    libraryVersion = '1.2.3-androidx'
 
     developerId = 'xujiaji'
     developerName = 'xujiaji'

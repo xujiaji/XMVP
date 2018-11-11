@@ -2,13 +2,12 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion setup.compileSdk
-    buildToolsVersion setup.buildTools
 
     defaultConfig {
         minSdkVersion setup.minSdk
         targetSdkVersion setup.targetSdk
-        versionCode 4
-        versionName "1.2.1"
+        versionCode 5
+        versionName "1.2.2"
     }
     buildTypes {
         release {
@@ -20,7 +19,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    compileOnly "com.android.support:appcompat-v7:${versions.supportLib}"
+    compileOnly "androidx.appcompat:appcompat:${versions.supportLib}"
     compileOnly "junit:junit:${versions.junit}"
 }
 apply from: 'install.gradle'

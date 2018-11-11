@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion setup.compileSdk
-    buildToolsVersion setup.buildTools
 
     defaultConfig {
         applicationId "io.xujiaji.sample"
@@ -17,10 +16,10 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':xmvp')
     testImplementation "junit:junit:${versions.junit}"
-    implementation "com.android.support:support-v4:${versions.supportLib}"
-    implementation "com.android.support:appcompat-v7:${versions.supportLib}"
-    implementation "com.android.support:recyclerview-v7:${versions.supportLib}"
-    implementation "com.android.support:design:${versions.supportLib}"
+    implementation "androidx.legacy:legacy-support-v4:${versions.supportLib}"
+    implementation "androidx.appcompat:appcompat:${versions.supportLib}"
+    implementation "androidx.recyclerview:recyclerview:${versions.supportLib}"
+    implementation "com.google.android.material:material:${versions.supportLib}"
     //绑定UI
     implementation "com.jakewharton:butterknife:${versions.butterknife}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${versions.butterknife}"

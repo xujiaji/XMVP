@@ -17,7 +17,7 @@
 package io.xujiaji.xmvp.view.interfaces;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import io.xujiaji.xmvp.presenters.XBasePresenter;
 
