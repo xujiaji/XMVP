@@ -38,12 +38,20 @@ This is a mvp framework to help you easily achieve mvp structure.
 ### First, Add xmvp dependency
 ```
 dependencies {
-    compile 'com.github.xujiaji:xmvp:1.2.3-androidx'
+    implementation 'com.github.xujiaji:xmvp:1.2.3'
 }
 ```
 or
 
 [![Download aar](https://img.shields.io/badge/download-.aar-red.svg)](https://github.com/xujiaji/XMVP/releases)
+
+> use androidx
+
+```
+dependencies {
+    implementation 'com.github.xujiaji:xmvp:1.2.3-androidx'
+}
+```
 ### Step1:define a contract
 You need to define a contract in contracts package, it contains a extend 'XContract.Presenter' interface and a extend 'XContract.View' interface.
 > Example: [HomeContract.java](./sample/src/main/java/io/xujiaji/sample/contract/HomeContract.java)
